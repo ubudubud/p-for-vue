@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;400;500&family=Open+Sans&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/surfpenguin.css">
+
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script>
+    <!-- vue的cdn連結 -->
+
+</head>
+<body>
+    <input type="checkbox" id="menu_switch">
+    <div class="main_header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/Logo.png" alt="Surfpenguin">
+            </a>
+
+            <ul class="nav_list">
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="products.html">精選商品</a></li>
+                <li><a href="blog.html">Blog網誌</a></li>
+                <li><a href="contact.html">聯絡我們</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" placeholder="搜尋商品">
+                <a href="products.html">
+                    <img src="img/search.png" alt="search">
+                </a>
+            </div>
+
+            <ul class="nav_button">
+                <li>
+                    <a href="login.html">
+                        <img src="img/login.png" alt="login">
+                    </a>
+                    <a href="cart.html">
+                        <img src="img/cart.png" alt="cart">
+                    </a>
+                </li>
+            </ul>
+            <label for="menu_switch" class="hb">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="all-banner">
+        <div class="banner-pic">
+            <img src="img/blog-banner.svg" alt="">
+        </div>
+    </div>
+
+    <!-- 用vue3改寫 -->
+    <div id="app">
+        <div v-for="(blog, index) in blogList" :key="index" class="blog-list">
+            <div class="blog-wrap">
+                <div class="blog-content">
+                    <div blog-pic>
+                        <img :src="blog.image" :alt="`blog${index + 1}`">
+                    </div>
+                </div>
+                <div class="blog-text">
+                    <p class="date">{{ blog.date }}</p>
+                    <p class="title">{{ blog.title }}</p>
+                    <p class="article">{{ blog.article }}</p>
+                </div>
+                <div class="blog-function">
+                    <a :href="blog.link">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="blog-list ">
+        <div class="blog-wrap">
+            <div class="blog-content">
+                <div blog-pic>
+                    <img src="img/blog1.png" alt="blog1">
+                </div>
+            </div>
+            <div class="blog-text">
+                <p class="date">2023.11.30</p>
+                <p class="title">衝浪前不可或缺的暖身操</p>
+                <p class="article">在冒險的浪頭前，一項不可或缺的儀式是仔細的暖身操。這不僅是肌肉的準備，更是心靈的連結。透過拉伸和深呼吸，身體進入最佳狀態，讓衝浪成為一場更加愉悅的冒險。暖身操不僅減少受傷......</p>
+            </div>
+            <div class="blog-function">
+                <a href="blog.html">Read More →</a>
+            </div>
+        </div>
+    </div>
+    <div class="blog-list">
+        <div class="blog-wrap">
+            <div class="blog-content">
+                <div blog-pic>
+                    <img src="img/blog2.png" alt="blog2">
+                </div>
+            </div>
+            <div class="blog-text">
+                <p class="date">2023.11.28</p>
+                <p class="title">衝浪板的選擇與建議</p>
+                <p class="article">在選擇衝浪板時，考量個人技術、浪況及風格至關重要。初學者宜選寬大、穩定的板型，提供更好的平衡感。中階者可嘗試較薄板型，追求速度與敏捷性。而高階者可根據浪型挑選不同尾......</p>
+            </div>
+            <div class="blog-function">
+                <a href="blog.html">Read More →</a>
+            </div>
+        </div>
+    </div>
+    <div class="blog-list">
+        <div class="blog-wrap">
+            <div class="blog-content">
+                <div blog-pic>
+                    <img src="img/blog3.png" alt="blog3">
+                </div>
+            </div>
+            <div class="blog-text">
+                <p class="date">2023.11.26</p>
+                <p class="title">新手上路衝浪訣竅</p>
+                <p class="article">新手衝浪，關鍵在於學會與海浪共舞。首先，保持身體低姿態，有助於穩定平衡。其次，注重腳步位置，找到適合站立的點。別急於追求大浪，從小浪開始，培養基本技巧。學習觀察浪形，預測浪潮走勢，提高衝浪效率。最重要的是享受過程，每次的跌倒都是成長......</p>
+            </div>
+            <div class="blog-function">
+                <a href="blog.html">Read More →</a>
+            </div>
+        </div>
+    </div>
+    <div class="blog-list">
+        <div class="blog-wrap">
+            <div class="blog-content">
+                <div blog-pic>
+                    <img src="img/blog4.png" alt="blog4">
+                </div>
+            </div>
+            <div class="blog-text">
+                <p class="date">2023.11.24</p>
+                <p class="title">世界各國衝浪勝地</p>
+                <p class="article">世界各地散佈著令人嚮往的衝浪勝地。夏威夷的北岸風浪磅礡，挑戰極限；澳洲的拜倫灣風景如畫，是冒險者的天堂。加州的馬里布吸引許多職業衝浪手，而巴厘島的烏布則有極具異國風情的浪點。葡萄牙納托市場的短板浪讓人難以忘懷，而南非的穆伊斯河口則是冒險者的秘......</p>
+            </div>
+            <div class="blog-function">
+                <a href="blog.html">Read More →</a>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="blog-space"></div>
+
+    <div class="product-page-list">
+        <a href="blog.html" class="p1">1</a>
+        <a href="blog.html">2</a>
+        <a href="blog.html">3</a>
+    </div>
+
+    <div class="footer-section">
+        <div class="footer">
+            <div class="footer-info">
+                <div class="logo-link">
+                    <div class="logo_icon">
+                        <a href="#" class="logo">
+                            <img src="img/logo.svg" alt="logo">
+                        </a>
+                        <div class="icon">
+                            <a href="#" class="icon-item"><img src="img/footer-fb.png" alt="fb"></a>
+                            <a href="#" class="icon-item"><img src="img/footer-ig.png" alt="ig"></a>
+                            <a href="#" class="icon-item"><img src="img/footer-line.png" alt="line"></a>
+                            <a href="#" class="icon-item"><img src="img/footer-youtube.png" alt="yt"></a>
+                        </div>
+                    </div>
+                    <div class="link">
+                        <div class="link-title">
+                            <div class="h1">關於我們</div>
+                            <a href="#">榮耀時刻</a>
+                            <a href="#">人才招募</a>
+                            <a href="#">隱私權申明</a>
+                            <a href="#">服務條款</a>
+                        </div>
+                        <div class="link-title">
+                            <div class="h1">顧客權益</div>
+                            <a href="#">聯絡我們</a>
+                            <a href="#">常見Q&A</a>
+                            <a href="#">防詐騙宣導</a>
+                            <a href="#">退換貨申明</a>
+                        </div>
+                        <div class="link-title">
+                            <div class="h1">其他服務</div>
+                            <a href="#">教學課程</a>
+                            <a href="#">商品資訊</a>
+                            <a href="#">旅遊</a>
+                            <a href="#">書店</a>
+                        </div>
+                        <div class="link-title">
+                            <div class="h1">企業合作</div>
+                            <a href="#">媒體聯繫</a>
+                            <a href="#">企業/大型採購</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">本網站為緯育TibaMe前端工程師班第88期學員專題作品，本平台僅供學習、展示之用。<br>
+                    ©2023 Surfpenguin All Rights Reserved.
+                    </div>
+            </div>
+            <div class="qrcode">
+                <img src="img/qr 1.png" alt="QRCODE">
+                <span>下載官方APP</span>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="JS/come.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    blogList: [
+                        {
+                            date: '2023.11.30',
+                            title: '衝浪前不可或缺的暖身操',
+                            article: '在冒險的浪頭前，一項不可或缺的儀式是仔細的暖身操。這不僅是肌肉的準備，更是心靈的連結。透過拉伸和深呼吸，身體進入最佳狀態，讓衝浪成為一場更加愉悅的冒險。暖身操不僅減少受傷...',
+                            image: 'img/blog1.png',
+                            link: 'blog.html'
+                        },
+                        // 其他博客数据...
+                    ]
+                };
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>
