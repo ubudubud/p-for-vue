@@ -62,13 +62,12 @@
         </div>
     </div>
 
-    <!-- 用vue3改寫 -->
     <div id="app">
-        <div v-for="(blog, index) in blogList" :key="index" class="blog-list">
+        <div v-for="blog in blogList" class="blog-list">
             <div class="blog-wrap">
                 <div class="blog-content">
                     <div blog-pic>
-                        <img :src="blog.image" :alt="`blog${index + 1}`">
+                        <img :src="blog.image" :alt="`blog${blog.id}`">
                     </div>
                 </div>
                 <div class="blog-text">
@@ -217,25 +216,54 @@
     </div>
 
     <script src="JS/come.js"></script>
-    <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    blogList: [
-                        {
-                            date: '2023.11.30',
-                            title: '衝浪前不可或缺的暖身操',
-                            article: '在冒險的浪頭前，一項不可或缺的儀式是仔細的暖身操。這不僅是肌肉的準備，更是心靈的連結。透過拉伸和深呼吸，身體進入最佳狀態，讓衝浪成為一場更加愉悅的冒險。暖身操不僅減少受傷...',
-                            image: 'img/blog1.png',
-                            link: 'blog.html'
-                        },
-                        // 其他博客数据...
-                    ]
-                };
-            }
-        });
-
-        app.mount('#app');
-    </script>
+    
+<script>
+const app = Vue.createApp({
+        data() {
+            return {
+                blogList: [
+                    {
+                        id: 1,
+                        date: '2023.11.30',
+                        title: '衝浪前不可或缺的暖身操',
+                        article: '在冒險的浪頭前，一項不可或缺的儀式是仔細的暖身操。這不僅是肌肉的準備，更是心靈的連結。透過拉伸和深呼吸，身體進入最佳狀態，讓衝浪成為一場更加愉悅的冒險。暖身操不僅減少受傷...',
+                        image: 'img/blog1.png',
+                        link: 'blog.html'
+                    },
+                    {
+                        id: 2,
+                        date: '2023.11.28',
+                        title: '衝浪板的選擇與建議',
+                        article: '在選擇衝浪板時，考量個人技術、浪況及風格至關重要。初學者宜選寬大、穩定的板型，提供更好的平衡感。中階者可嘗試較薄板型，追求速度與敏捷性。而高階者可根據浪型挑選不同尾...',
+                        image: 'img/blog2.png',
+                        link: 'blog.html'
+                    },
+                    {
+                        id: 3,
+                        date: '2023.11.26',
+                        title: '新手上路衝浪訣竅',
+                        article: '新手衝浪，關鍵在於學會與海浪共舞。首先，保持身體低姿態，有助於穩定平衡。其次，注重腳步位置，找到適合站立的點。別急於追求大浪，從小浪開始，培養基本技巧。學習觀察浪形，預測浪潮走勢，提高衝浪效率。最重要的是享受過程，每次的跌倒都是成長......',
+                        image: 'img/blog3.png',
+                        link: 'blog.html'
+                    },
+                    {
+                        id: 4,
+                        date: '2023.11.24',
+                        title: '世界各國衝浪勝地',
+                        article: '世界各地散佈著令人嚮往的衝浪勝地。夏威夷的北岸風浪磅礡，挑戰極限；澳洲的拜倫灣風景如畫，是冒險者的天堂。加州的馬里布吸引許多職業衝浪手，而巴厘島的烏布則有極具異國風情的浪點。葡萄牙納托市場的短板浪讓人難以忘懷，而南非的穆伊斯河口則是冒險者的秘......',
+                        image: 'img/blog4.png',
+                        link: 'blog.html'
+                    },
+                    
+                ]
+            };
+        }
+    });
+    
+    app.mount('#app');
+</script>
+    
+    
+    
 </body>
 </html>
